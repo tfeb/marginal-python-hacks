@@ -1,0 +1,17 @@
+# Ignore emacs backups & auto save files
+*~
+\#*\#
+.\#*
+
+# Eunectes root
+.eunectes
+
+# Some temporary directories
+scratch/
+tmp/
+
+# Ignore Python compiled files
+*.pyc
+
+# jupyter checkoints
+.ipynb_checkpoints/
