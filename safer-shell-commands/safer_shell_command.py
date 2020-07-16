@@ -171,7 +171,7 @@ class SaferShellCommand(object):
 
     def __init__(self, template, validators=None,
                  fallback_validator=None):
-        
+
         mapper = {}
         targets = set()
         for (i, e) in enumerate(template):
@@ -185,13 +185,13 @@ class SaferShellCommand(object):
         self.targets = targets
         self.template = tuple(i if isinstance(e, set) else e
                               for (i, e) in enumerate(template))
-        
+
         if validators is not None:
             if isinstance(validators, dict):
                 for k in validators.keys():
                     if k not in mapper:
                         raise BogusSSC("unmapped validator")
-                self.validators = defaultdict((lambda: 
+                self.validators = defaultdict((lambda:
                                                self.fallback_validator),
                                               validators)
             else:
@@ -199,12 +199,12 @@ class SaferShellCommand(object):
         else:
             self.validators = defaultdict((lambda:
                                            self.fallback_validator))
-        
+
         if fallback_validator is not None:
             self.fallback_validator = fallback_validator
         else:
             self.fallback_validator = self.default_fallback_validator
-        
+
     @staticmethod
     def default_fallback_validator(arg):
         """The default fallback validator.
@@ -217,7 +217,7 @@ class SaferShellCommand(object):
             return True
         else:
             return False
-    
+
     def validate_replacement(self, name, value):
         """Validate a single proposed replacement.
 
@@ -241,7 +241,7 @@ class SaferShellCommand(object):
                 if not v(value):
                     return False
             return True
-    
+
     def validate_replacements(self, replacements):
         """Validate a ``dict`` of replacements.
 
@@ -268,7 +268,7 @@ class SaferShellCommand(object):
             else:
                 targets.add(self.mapper[name])
         return targets == self.targets
-    
+
     def fill_template(self, replacements):
         """Fill a template with replacements.
 
@@ -293,7 +293,7 @@ class SaferShellCommand(object):
                           for (n, r) in replacements.items()):
             filled_template[ti] = tr
         return filled_template
-    
+
     def command_line(self, iterable):
         """Given an iterable, return a shell command line.
 
@@ -303,7 +303,7 @@ class SaferShellCommand(object):
 
         """
         return " ".join(iterable)
-    
+
     def fill_command_line(self, replacements):
         """Fill a template and return a command line.
 
