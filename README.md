@@ -9,4 +9,8 @@ Python 2.7 or 3.*
 
 ---
 
+[![Test status](https://travis-ci.com/tfeb/marginal-python-hacks.svg)](https://travis-ci.com/tfeb/marginal-python-hacks)
+
+---
+
 -- Tim Bradshaw, 2020

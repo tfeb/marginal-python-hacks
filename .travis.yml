@@ -1,0 +1,22 @@
+# Tests for marginal python hacks
+
+# hush
+git:
+  quiet: true
+
+
+# Only master branch
+branches:
+  only:
+    - master
+
+language: python
+
+python:
+  # it is annoying you can't say "3" to mean 'current 3'.
+  - "2.7"
+  - "3.7"
+  - "3.8"
+
+script:
+  - make test
