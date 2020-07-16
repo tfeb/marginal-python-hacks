@@ -1,0 +1,25 @@
+#!/bin/sh -u
+#
+# A wrapper for Python scripts.
+#
+# This is designed to be the target of a symlink, which is the
+# executable program.  It works out its name and a root directory
+# which is one level up from where it is.  It then points python at a
+# script which is in a directory $ROOT/libexec, first prepending
+# $ROOT/lib/python to PYTHONPATH.
+#
+
+die() {
+    echo "$@"
+    exit 1
+}
+
+ME=$(basename "$0")
+BIN=$(dirname "$0")
+ROOT=$(cd "$BIN/.." && pwd)
+SCRIPT="$ROOT/libexec/$ME.py"
+[ -e "$SCRIPT" ] || die "no wrapped script $SCRIPT"
+[ -x "$SCRIPT" ] || die "wrapped script $SCRIPT is not executable"
+
+PYTHONPATH="$ROOT/lib/python${PYTHONPATH:+:$PYTHONPATH}" \
+  exec "${PYTHON:-python}" "$ROOT/libexec/$ME.py" "$@"

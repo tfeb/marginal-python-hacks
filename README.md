@@ -7,6 +7,10 @@ them all.
 Safer, or at least less dangerous, shell commands from templates.
 Python 2.7 or 3.*
 
+## [Wrapper](wrapper/README.md)
+Tiny shell wrappers for Python programs which set `PYTHONPATH` &c.
+Any Python version, Unix or Linux.
+
 ---
 
 [![Test status](https://travis-ci.com/tfeb/marginal-python-hacks.svg)](https://travis-ci.com/tfeb/marginal-python-hacks)
