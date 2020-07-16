@@ -30,7 +30,7 @@ True
 >>> bad_replacements = {"switch": "-q", "pattern": "x", "file": "y"}
 >>> grepper.validate_replacements(bad_replacements)
 False
->>> grepper.fill_command_line(bad_replacements)
+>>> grepper.fill_command_line(bad_replacements) #doctest: +IGNORE_EXCEPTION_DETAIL
 Traceback (most recent call last):
   ...
 SCCTrouble: bad replacements
