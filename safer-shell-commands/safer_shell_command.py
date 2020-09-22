@@ -8,6 +8,10 @@ instance when using ``ssh`` for remote execution) they are all-but
 unavoidable.  This module tries to make them less dangerous: it does
 not make them safe.
 
+This module does not itself execute shell commands for you: it allows
+you to construct command lines which you then can execute, for
+instance with ``os.system()``.
+
 Examples
 --------
 >>> valid_switches = {"-i", "-n"}
@@ -86,6 +90,8 @@ Compatibility
 This module should work in either Python 2.7 or 3: it was written in
 Python 3 but has been tested in Python 2.7.
 """
+
+__all__ = ('BogusSSC', 'SCCTrouble', 'SaferShellCommand')
 
 from re import match
 from collections import defaultdict
