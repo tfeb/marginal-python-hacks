@@ -11,10 +11,14 @@ Safer, or at least less dangerous, shell commands from templates.
 Tiny shell wrappers for Python programs which set `PYTHONPATH` &c.
 [Documentation](wrapper/README.md).  Any Python version, Unix or Linux.
 
+---
+
 ## Testing
-`make test` will run such tests as there are. There were formerly
-Travis CI tests but these are now gone: I hope to add some based on
-GitHub actions soon.
+`make test` will run such tests as there are.  Tests are run
+automatically by GitHub Actions: the status is below.
+
+[![GitHub tests status](https://github.com/tfeb/marginal-python-hacks/workflows/tests/badge.svg)](https://github.com/tfeb/marginal-python-hacks/actions?query=workflow%3Atests)
+
 
 ---
 
